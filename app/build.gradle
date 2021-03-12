@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.teletrac.excercise"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -72,5 +72,10 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:okhttp:$logging_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_version"
+
+    //Lazy loading of images
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //Date Parsing
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.1.1")
 
 }

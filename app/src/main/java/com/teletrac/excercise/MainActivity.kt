@@ -3,27 +3,22 @@ package com.teletrac.excercise
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.teletrac.excercise.adapter.StudentAdapter
+import com.teletrac.excercise.adapter.WeatherAdapter
 import com.teletrac.excercise.data.AllObjects
-import com.teletrac.excercise.viewmodel.StudentViewModel
+import com.teletrac.excercise.viewmodel.WeatherViewModel
 
 class MainActivity : AppCompatActivity() , LifecycleOwner {
 
     var context: MainActivity? = null
-    var viewModel: StudentViewModel? = null
+    var viewModel: WeatherViewModel? = null
     var recyclerView: RecyclerView? = null
-    var recyclerViewAdapter: StudentAdapter? = null
-    var pastVisiblesItems:Int = 0
-    var visibleItemCount:Int = 0
-    var totalItemCount:Int = 0
+    var recyclerViewAdapter: WeatherAdapter? = null
     var mLayoutManager: LinearLayoutManager? = null
-    var isScrolling = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +26,7 @@ class MainActivity : AppCompatActivity() , LifecycleOwner {
         context = this
         recyclerView = findViewById(R.id.rv_main)
 
-        viewModel = ViewModelProviders.of(context!!).get(StudentViewModel::class.java)
+        viewModel = ViewModelProviders.of(context!!).get(WeatherViewModel::class.java)
 
 
         viewModel!!.getUserMutableLiveData()?.observe(context!!, userListUpdateObserver)
@@ -83,7 +78,7 @@ class MainActivity : AppCompatActivity() , LifecycleOwner {
     }
 
     var userListUpdateObserver: Observer<ArrayList<AllObjects>> = Observer<ArrayList<AllObjects>> { studentArrayList ->
-        recyclerViewAdapter = StudentAdapter(context!!, studentArrayList)
+        recyclerViewAdapter = WeatherAdapter(context!!, studentArrayList)
         recyclerView!!.layoutManager = LinearLayoutManager(context)
         recyclerView!!.adapter = recyclerViewAdapter
         recyclerView!!.setLayoutManager(recyclerView!!.layoutManager);

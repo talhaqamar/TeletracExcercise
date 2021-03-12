@@ -4,9 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.teletrac.excercise.data.AllObjects
-import com.teletrac.excercise.data.JSONData
 import com.teletrac.excercise.data.WeatherResult
-import com.teletrac.excercise.model.Student
 import com.teletrac.excercise.retrofit.RetroInterface
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -16,11 +14,10 @@ import retrofit2.Retrofit
 import retrofit2.awaitResponse
 import retrofit2.converter.gson.GsonConverterFactory
 
-import java.util.*
 import kotlin.collections.ArrayList
 
 
-class StudentViewModel : ViewModel() {
+class WeatherViewModel : ViewModel() {
 
 
     var userMutableLiveData: MutableLiveData<ArrayList<AllObjects>>
@@ -32,11 +29,11 @@ class StudentViewModel : ViewModel() {
 //        studentArrayList = ArrayList()
 //        allRecordsArrayList = ArrayList()
        // allRecordsArrayList = JSONData.parseJSON()
-        populateList()
+        populateWeatherData()
 
     }
 
-    fun populateList() {
+    fun populateWeatherData() {
         var rf = Retrofit.Builder().baseUrl("https://samples.openweathermap.org/data/2.5/")
             .addConverterFactory(GsonConverterFactory.create()).build()
             .create(RetroInterface::class.java)

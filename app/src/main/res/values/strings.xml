@@ -1,6 +1,7 @@
 <resources>
 <string name="app_name">TeletracExcercise</string>
-<string name="student_name">Student Name :</string>
-<string name="student_id">Student ID :</string>
+<string name="rain">RAIN</string>
+<string name="rain_text">12:00 PM</string>
+<string name="date">10th Sept 2019</string>
 <string name="student_s_program">Student\'s Program :</string>
 </resources>
